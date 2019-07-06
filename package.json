@@ -1,7 +1,7 @@
 {
-  "name": "botium-connector-watson",
-  "version": "0.0.7",
-  "description": "Botium Connector for IBM Watson Assistant",
+  "name": "zhenshuo-botium-connector-watson",
+  "version": "0.0.1",
+  "description": "For personal usage. Forked from https://github.com/codeforequity-at/botium-connector-watson",
   "main": "dist/botium-connector-watson-cjs.js",
   "module": "dist/botium-connector-watson-es.js",
   "engines": {
@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codeforequity-at/botium-connector-watson.git"
+    "url": "git+https://github.com/zhenshuo/botium-connector-watson.git"
   },
   "author": "Florian Treml",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/codeforequity-at/botium-core/issues"
+    "url": "https://github.com/zhenshuo/botium-core/issues"
   },
-  "homepage": "https://github.com/codeforequity-at/botium-core",
+  "homepage": "https://github.com/zhenshuo/botium-connector-watson.git",
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
