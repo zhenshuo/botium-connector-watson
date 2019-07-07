@@ -250,7 +250,24 @@ class BotiumConnectorWatson {
       texts = sendMessageResponse.output.text && (_.isArray(sendMessageResponse.output.text) ? sendMessageResponse.output.text.filter(t => t) : [ sendMessageResponse.output.text ])
     }
     if (!texts || texts.length === 0) {
+      // specfic code for Kokus.ai, handle options message
+      texts = generic && generic.filter(g => g.response_type === 'option')
+      .reduce((acc, g) => {
+        if (_.isArray(g.title)) {
+          return acc.concat(g.title.filter(t => t))
+        } else if (g.title) {
+          return acc.concat([g.title])
+        } else {
+          return acc
+        }
+      }, [])
+    }
+    if (!texts || texts.length === 0) {
       texts = [ undefined ]
+    }
+    if (texts[0] !== undefined) {
+      // specfic code for Kokus.ai, remove <br> tag in text
+      texts = texts.map(t => t.replace(/<br>/g, ""));
     }
 
     const media = generic && generic.filter(g => g.response_type === 'image')
