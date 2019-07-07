@@ -241,6 +241,12 @@ class BotiumConnectorWatson {
           return acc.concat(g.text.filter(t => t))
         } else if (g.text) {
           return acc.concat([g.text])
+        } else if (_.isArray(g.title)) {
+          // specfic code for Kokus.ai, handle options message
+          return acc.concat(g.title.filter(t => t))
+        } else if (g.title) {
+          // specfic code for Kokus.ai, handle options message
+          return acc.concat([g.title])
         } else {
           return acc
         }
@@ -248,19 +254,6 @@ class BotiumConnectorWatson {
     if (!texts || texts.length === 0) {
       // Assistant V1 legacy
       texts = sendMessageResponse.output.text && (_.isArray(sendMessageResponse.output.text) ? sendMessageResponse.output.text.filter(t => t) : [ sendMessageResponse.output.text ])
-    }
-    if (!texts || texts.length === 0) {
-      // specfic code for Kokus.ai, handle options message
-      texts = generic && generic.filter(g => g.response_type === 'option')
-      .reduce((acc, g) => {
-        if (_.isArray(g.title)) {
-          return acc.concat(g.title.filter(t => t))
-        } else if (g.title) {
-          return acc.concat([g.title])
-        } else {
-          return acc
-        }
-      }, [])
     }
     if (!texts || texts.length === 0) {
       texts = [ undefined ]

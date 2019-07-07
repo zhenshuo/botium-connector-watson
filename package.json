@@ -1,6 +1,6 @@
 {
   "name": "zhenshuo-botium-connector-watson",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "For personal usage. Forked from https://github.com/codeforequity-at/botium-connector-watson",
   "main": "dist/botium-connector-watson-cjs.js",
   "module": "dist/botium-connector-watson-es.js",
