@@ -235,7 +235,7 @@ class BotiumConnectorWatson {
 
     let forceIntentResolution = this.caps[Capabilities.WATSON_FORCE_INTENT_RESOLUTION]
 
-    let texts = generic && generic.filter(g => g.response_type === 'text')
+    let texts = generic && generic.filter(g => g.response_type === 'text' || g.response_type === 'option')
       .reduce((acc, g) => {
         if (_.isArray(g.text)) {
           return acc.concat(g.text.filter(t => t))
